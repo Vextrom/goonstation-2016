@@ -160,6 +160,7 @@ var/global/list/soundCache = list(
  	"sound/effects/heartbeat.ogg" = 'sound/effects/heartbeat.ogg',\
  	"sound/effects/heavenly.ogg" = 'sound/effects/heavenly.ogg',\
  	"sound/effects/kaboom.ogg" = 'sound/effects/kaboom.ogg',\
+ 	"sound/effects/light_breaker.ogg" = 'sound/effects/light_breaker.ogg',\
  	"sound/effects/MagShieldDown.ogg" = 'sound/effects/MagShieldDown.ogg',\
  	"sound/effects/MagShieldUp.ogg" = 'sound/effects/MagShieldUp.ogg',\
  	"sound/effects/mag_fireballlaunch.ogg" = 'sound/effects/mag_fireballlaunch.ogg',\

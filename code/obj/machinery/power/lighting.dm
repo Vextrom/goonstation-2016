@@ -478,16 +478,18 @@
 
 // break the light and make sparks if was on
 
-/obj/machinery/light/proc/broken()
+/obj/machinery/light/proc/broken(spark)
 	if(status == LIGHT_EMPTY || status == LIGHT_BROKEN)
 		return
 
 	if(status == LIGHT_OK || status == LIGHT_BURNED)
 		playsound(src.loc, "sound/effects/Glasshit.ogg", 75, 1)
-	if(on)
-		var/datum/effects/system/spark_spread/s = unpool(/datum/effects/system/spark_spread)
-		s.set_up(3, 1, src)
-		s.start()
+	// if there is no argument provided to the function, then make a spark.
+	if(!spark)
+		if(on)
+			var/datum/effects/system/spark_spread/s = unpool(/datum/effects/system/spark_spread)
+			s.set_up(3, 1, src)
+			s.start()
 	status = LIGHT_BROKEN
 	update()
 
