@@ -251,6 +251,12 @@ proc/build_syndi_buylist_cache()
 	cost = 10
 	desc = "Like the microbomb, but much more powerful. Macrobombs for macrofun!"
 
+/datum/syndicate_buylist/traitor/lightbreaker
+	name = "Light Breaker"
+	item = /obj/item/lightbreaker
+	cost = 3
+	desc = "A casette player that breaks all lights near you. It also temporarily deafens and staggers all nearby people. Comes with four charges and has a distinctive sound."
+
 /datum/syndicate_buylist/traitor/surplus
 	name = "Surplus Crate"
 	item = /obj/storage/crate/syndicate_surplus
