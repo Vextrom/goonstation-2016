@@ -87,6 +87,18 @@ toxic - poisons
 	color_green = 0
 	color_blue = 1
 
+/datum/projectile/laser/quark
+	name = "quark beam"
+	icon_state = "quark_beam"
+	power = 80
+	cost = 50
+	dissipation_delay = 10
+	sname = "quark beam"
+	shot_sound = 'sound/weapons/Laser.ogg'
+	color_red = 1
+	color_green = 0
+	color_blue = 1
+
 /datum/projectile/laser/asslaser // heh
 	name = "assault laser"
 	icon_state = "u_laser"

@@ -2345,26 +2345,46 @@ datum
 			fluid_g = 1
 			fluid_b = 117
 			transparency = 255
+			overdose = 30
 			/var/anim_lock = 0
-			var/datum/projectile/PJ = new/datum/projectile/laser/heavy
-			/var/T = pick(NORTH, EAST, SOUTH, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
-			
+			/var/overlay_lock = 0
+			/var/image/ovl_sprite = image("icon" = 'icons/effects/genetics.dmi', "icon_state" = "aura_fire", layer = MOB_LIMB_LAYER)
+			/var/datum/projectile/PJ = new/datum/projectile/laser/quark
+			/var/T = NORTH
+			/var/shoottimer = 1
+
 			pooled()
 				..()
 				anim_lock = 0
-				T = pick(NORTH, EAST, SOUTH, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
+				T = NORTH
+				shoottimer = 4
 
 			on_mob_life(var/mob/M)
-				if(!M) M = holder.my_atom
+				if(!M)
+					M = holder.my_atom
 				
+				ovl_sprite.color = "#3f007f"
+
 				if(!anim_lock)
-					animate_hover(M,-1,5)
+					animate_hover(M,-1,5) // figure out how to avoid breaking the animation by flipping.
 					anim_lock = 1
 				
-				shoot_projectile_ST(M, PJ, T)
+				if(!overlay_lock)
+					M.UpdateOverlays(ovl_sprite, "super")
+					overlay_lock = 1
+
+				++shoottimer
+				if(shoottimer > 2)
+					T = pick(NORTH, EAST, SOUTH, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
+					shoot_projectile_DIR(M, PJ, T)
+					shoottimer = 0
 
 				..(M)
 				return
+
+			do_overdose(var/severity, var/mob/M)
+				M.visible_message("<span style=\"color:red\"><B>[M]</B> is being ripped apart atomically!</span>", "The fabric of your being is being torn apart!")
+				explosion_new(M, T, 10, 1) // This isn't working figure out why.
 
 
 		reversium
