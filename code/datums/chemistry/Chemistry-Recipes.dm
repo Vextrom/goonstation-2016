@@ -2704,4 +2704,14 @@ datum
 			result_amount = 1
 			mix_phrase = ".ylegnarts dnuora lriws ot snigeb erutxim ehT"
 			mix_sound = 'sound/misc/drinkfizz.ogg'
+
+		dbz_chem
+			name = "superpowers"
+			id = "dbz_chem"
+			result = "dbz_chem"
+			required_reagents = list("big_band_precursor" = 1, "voltagen" = 12, "something" = 3)
+			result_amount = 1
+			mix_phrase = "The solution settles into a glowing purple mixture that vibrates the beaker."
+			required_temperature = T0C
+			
 #undef get_fucked_clarks

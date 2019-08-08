@@ -2336,6 +2336,37 @@ datum
 			fluid_b = 255
 			transparency = 255
 
+		dbz_chem
+			name = "superpowers"
+			id = "dbz_chem"
+			description = "oh dear lord how did you make this!?"
+			reagent_state = LIQUID
+			fluid_r = 69
+			fluid_g = 1
+			fluid_b = 117
+			transparency = 255
+			/var/anim_lock = 0
+			var/datum/projectile/PJ = new/datum/projectile/laser/heavy
+			/var/T = pick(NORTH, EAST, SOUTH, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
+			
+			pooled()
+				..()
+				anim_lock = 0
+				T = pick(NORTH, EAST, SOUTH, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
+
+			on_mob_life(var/mob/M)
+				if(!M) M = holder.my_atom
+				
+				if(!anim_lock)
+					animate_hover(M,-1,5)
+					anim_lock = 1
+				
+				shoot_projectile_ST(M, PJ, T)
+
+				..(M)
+				return
+
+
 		reversium
 			name = "reversium"
 			id = "reversium"
@@ -2361,3 +2392,6 @@ datum
 				M.bioHolder.AddEffect("reversed_speech", timeleft = 180)
 				..(M)
 				return
+
+
+

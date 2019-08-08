@@ -49,6 +49,17 @@
 		animate(pixel_y = 0, transform = null, time = floatspeed, loop = loopnum, easing = SINE_EASING)
 	return
 
+	
+/proc/animate_hover(var/atom/A, var/loopnum = -1, floatspeed = 20)
+	if (!istype(A))
+		return
+	var/floatdegrees = 5
+
+	animate(A, pixel_y = 12, transform = matrix(floatdegrees * 1, MATRIX_ROTATE), time = floatspeed, loop = loopnum, easing = SINE_EASING)
+	animate(pixel_y = 4, transform = null, time = floatspeed, loop = loopnum, easing = SINE_EASING)
+	return
+
+
 /proc/animate_revenant_shockwave(var/atom/A, var/loopnum = -1, floatspeed = 20, random_side = 1)
 	if (!istype(A))
 		return
