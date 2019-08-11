@@ -128,13 +128,13 @@ toxic - poisons
 	caliber = 0.308
 	icon_turf_hit = "bhole-small"
 
-	on_hit(atom/hit, dirflag)
+	on_hit(atom/hit, dirflag, obj/projectile/proj)
 		if(ishuman(hit))
 			var/mob/living/carbon/human/M = hit
-			if(power > 40)
+			if(proj.power > 40)
 				M.stunned += 3
 				M.weakened += 2
-			if(power > 80)
+			if(proj.power > 80)
 				var/turf/target = get_edge_target_turf(M, dirflag)
 				spawn(0)
 					M.throw_at(target, 2, 2)
@@ -218,13 +218,13 @@ toxic - poisons
 	implanted = /obj/item/implant/projectile/bullet_12ga
 	casing = /obj/item/casing/shotgun_red
 
-	on_hit(atom/hit, dirflag)
+	on_hit(atom/hit, dirflag, obj/projectile/proj)
 		if (ishuman(hit))
 			var/mob/living/carbon/human/M = hit
-			if(power > 30)
+			if(proj.power > 30)
 				M.stunned += 5
 				M.weakened += 5
-			if(power > 70)
+			if(proj.power > 70)
 				var/turf/target = get_edge_target_turf(M, dirflag)
 				spawn(0)
 					if(!M.stat) M.emote("scream")
@@ -263,10 +263,10 @@ toxic - poisons
 	icon_turf_hit = "bhole"
 	casing = /obj/item/casing/shotgun_blue
 
-	on_hit(atom/hit, dirflag)
+	on_hit(atom/hit, dirflag, obj/projectile/proj)
 		if (ishuman(hit))
 			var/mob/living/carbon/human/M = hit
-			if(power >= 16)
+			if(proj.power >= 16)
 				var/turf/target = get_edge_target_turf(M, dirflag)
 				spawn(0)
 					if(!M.stat) M.emote("scream")
