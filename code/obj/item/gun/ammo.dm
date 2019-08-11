@@ -337,6 +337,17 @@
 	icon_short = "38S"
 	icon_empty = "speedloader_empty"
 
+/obj/item/ammo/bullets/dbarrelclip
+	sname = "12ga Dbarrel Clip"
+	name = "12ga Double Barrel Clip"
+	ammo_type = new/datum/projectile/bullet/doublebarrel
+	icon_state = "12"
+	amount_left = 1.0
+	max_amount = 1.0
+	caliber = 0.80
+	icon_dynamic = 0
+	icon_empty = "12-0"
+
 /obj/item/ammo/bullets/a12
 	sname = "12ga Buckshot"
 	name = "12ga buckshot ammo box"

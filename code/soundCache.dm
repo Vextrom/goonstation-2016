@@ -2295,5 +2295,8 @@ var/global/list/soundCache = list(
  	"sound/weapons/Taser.ogg" = 'sound/weapons/Taser.ogg',\
  	"sound/weapons/TaserOLD.ogg" = 'sound/weapons/TaserOLD.ogg',\
  	"sound/weapons/thudswoosh.ogg" = 'sound/weapons/thudswoosh.ogg',\
+	"sound/weapons/dbl_shoot.ogg" = 'sound/weapons/dbl_shoot.ogg',\
+	"sound/weapons/dbl_open.ogg" = 'sound/weapons/dbl_open.ogg',\
+	"sound/weapons/dbl_close.ogg" = 'sound/weapons/dbl_close.ogg',\
 
 "NONE" = null)

@@ -232,6 +232,41 @@ toxic - poisons
 			if (src.hit_type)
 				take_bleeding_damage(hit, null, round(src.power / 3), src.hit_type)
 
+/datum/projectile/bullet/doublebarrel
+	name = "double buckshot"
+	shot_sound = 'sound/weapons/dbl_shoot.ogg'
+	power = 100
+	ks_ratio = 1.0
+	dissipation_delay = 3//2
+	dissipation_rate = 20
+	damage_type = D_KINETIC
+	hit_type = DAMAGE_BLUNT
+	caliber = 0.80 // roughly
+	icon_turf_hit = "bhole"
+	implanted = /obj/item/implant/projectile/bullet_12ga
+	casing = /obj/item/casing/shotgun_red
+
+	on_hit(atom/hit, dirflag, obj/projectile/proj)
+		if (ishuman(hit))
+			var/mob/living/carbon/human/M = hit
+			if(proj.power > 30)
+				M.stunned += 5
+				M.weakened += 5
+			if(proj.power > 80)
+				var/turf/target = get_edge_target_turf(M, dirflag)
+				if(prob(20))
+					M.sever_limb("r_arm")
+					M.sever_limb("r_leg")
+				else if(prob(70))
+					M.sever_limb("r_leg")
+				else if(prob(70))
+					M.sever_limb("r_arm")
+				spawn(0)
+					if(!M.stat) M.emote("scream")
+					M.throw_at(target, 6, 2)
+			if (src.hit_type)
+				take_bleeding_damage(hit, null, round(src.power / 3), src.hit_type)
+
 /datum/projectile/bullet/aex
 	name = "explosive slug"
 	shot_sound = 'sound/weapons/shotgunshot.ogg'
