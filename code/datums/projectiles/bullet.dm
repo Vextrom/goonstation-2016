@@ -235,7 +235,8 @@ toxic - poisons
 /datum/projectile/bullet/doublebarrel
 	name = "double buckshot"
 	shot_sound = 'sound/weapons/dbl_shoot.ogg'
-	power = 100
+	cost = 2
+	power = 90
 	ks_ratio = 1.0
 	dissipation_delay = 3//2
 	dissipation_rate = 20
@@ -254,11 +255,10 @@ toxic - poisons
 				M.weakened += 5
 			if(proj.power > 80)
 				var/turf/target = get_edge_target_turf(M, dirflag)
-				if(prob(20))
-					M.sever_limb("r_arm")
+				if(prob(10))
 					M.sever_limb("r_leg")
 				else if(prob(70))
-					M.sever_limb("r_leg")
+					M.sever_limb("l_arm")
 				else if(prob(70))
 					M.sever_limb("r_arm")
 				spawn(0)

@@ -203,7 +203,7 @@
 	force = 12.0
 	contraband = 10
 	caliber = 0.80
-	max_ammo_capacity = 1
+	max_ammo_capacity = 2
 	auto_eject = 0
 	w_class = 2.0
 
