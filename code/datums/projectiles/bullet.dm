@@ -238,7 +238,7 @@ toxic - poisons
 	cost = 2
 	power = 90
 	ks_ratio = 1.0
-	dissipation_delay = 3//2
+	dissipation_delay = 2//2
 	dissipation_rate = 20
 	damage_type = D_KINETIC
 	hit_type = DAMAGE_BLUNT
